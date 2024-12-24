@@ -20,6 +20,8 @@ warnings.filterwarnings("ignore")
 def ee_authenticate(token_name="EARTHENGINE_TOKEN"):
     geemap.ee_initialize(token_name=token_name)
 
+EARTHENGINE_TOKEN="4/1AanRRrvetQE-WO5EsxFzfpCM_Ff7p5yUoLl63V0NkhUCpGgy8C_nIXbW6yk"
+
 goes_rois = {
     "Creek Fire, CA (2020-09-05)": {
         "region": Polygon(
