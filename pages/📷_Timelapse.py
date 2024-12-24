@@ -15,14 +15,16 @@ from shapely.geometry import Polygon
 st.set_page_config(layout="wide")
 warnings.filterwarnings("ignore")
 
-service_account = json.loads(st.secrets["gee"]["service_account"])
-
-# 初始化 GEE
-credentials = ee.ServiceAccountCredentials.from_json_keyfile_dict(service_account)
-ee.Initialize(credentials)
-
-st.success("Google Earth Engine 授權成功！")
-
+# 從 secrets 中讀取服務帳戶憑證
+try:
+    service_account_json = json.loads(st.secrets["gee"]["service_account"])
+    credentials = ee.ServiceAccountCredentials.from_json_keyfile_dict(service_account_json)
+    ee.Initialize(credentials)
+    st.success("Google Earth Engine 授權成功！")
+except KeyError as e:
+    st.error(f"密鑰錯誤：{e}")
+except Exception as e:
+    st.error(f"初始化失敗：{e}")
 
 # 初始化 GEE
 ee.Initialize(credentials)
