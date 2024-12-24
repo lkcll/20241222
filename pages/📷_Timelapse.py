@@ -16,12 +16,6 @@ st.set_page_config(layout="wide")
 warnings.filterwarnings("ignore")
 
 
-api_key = st.secrets["gee"]["api_key"]
-service_account = st.secrets["gee"].get("service_account")
-
-if api_key:
-    ee.Initialize(api_key=api_key)
-
 goes_rois = {
     "Creek Fire, CA (2020-09-05)": {
         "region": Polygon(
