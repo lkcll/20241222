@@ -15,19 +15,18 @@ from shapely.geometry import Polygon
 st.set_page_config(layout="wide")
 warnings.filterwarnings("ignore")
 
-# 從 secrets 中讀取服務帳戶憑證
 try:
+    # 從 secrets 加載服務帳戶憑證
     service_account_json = json.loads(st.secrets["gee"]["service_account"])
     credentials = ee.ServiceAccountCredentials.from_json_keyfile_dict(service_account_json)
+
+    # 初始化 GEE
     ee.Initialize(credentials)
     st.success("Google Earth Engine 授權成功！")
 except KeyError as e:
     st.error(f"密鑰錯誤：{e}")
 except Exception as e:
-    st.error(f"初始化失敗：{e}")
-
-# 初始化 GEE
-ee.Initialize(credentials)
+    st.error(f"GEE 初始化失敗：{e}")
 
 goes_rois = {
     "Creek Fire, CA (2020-09-05)": {
