@@ -15,17 +15,17 @@ from shapely.geometry import Polygon
 st.set_page_config(layout="wide")
 warnings.filterwarnings("ignore")
 
-
-# 讀取 GEE 憑證
-service_account = st.secrets[gee][service_account]
-credentials = ee.ServiceAccountCredentials.from_json_keyfile_dict(json.loads(service_account))
+service_account = json.loads(st.secrets["gee"]["service_account"])
 
 # 初始化 GEE
-try:
-    ee.Initialize(credentials)
-    st.success("Google Earth Engine 授權成功！")
-except Exception as e:
-    st.error(f"授權失敗: {e}")
+credentials = ee.ServiceAccountCredentials.from_json_keyfile_dict(service_account)
+ee.Initialize(credentials)
+
+st.success("Google Earth Engine 授權成功！")
+
+
+# 初始化 GEE
+ee.Initialize(credentials)
 
 goes_rois = {
     "Creek Fire, CA (2020-09-05)": {
