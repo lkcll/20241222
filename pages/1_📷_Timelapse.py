@@ -20,21 +20,6 @@ warnings.filterwarnings("ignore")
 def ee_authenticate(token_name="4/1AanRRrvetQE-WO5EsxFzfpCM_Ff7p5yUoLl63V0NkhUCpGgy8C_nIXbW6yk"):
     geemap.ee_initialize(token_name=token_name)
 
-
-st.sidebar.info(
-    """
-    - Web App URL: <https://streamlit.gishub.org>
-    - GitHub repository: <https://github.com/giswqs/streamlit-geospatial>
-    """
-)
-
-st.sidebar.title("Contact")
-st.sidebar.info(
-    """
-    Qiusheng Wu at [wetlands.io](https://wetlands.io) | [GitHub](https://github.com/giswqs) | [Twitter](https://twitter.com/giswqs) | [YouTube](https://youtube.com/@giswqs) | [LinkedIn](https://www.linkedin.com/in/giswqs)
-    """
-)
-
 goes_rois = {
     "Creek Fire, CA (2020-09-05)": {
         "region": Polygon(
