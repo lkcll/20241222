@@ -1,6 +1,6 @@
 import streamlit as st
 
-image_url_1 = "/workspaces/20241222/2016-10-28-00_00_2016-10-28-23_59_Sentinel-2_L2A_Scene_classification_map_ (1)_1.jpg"
+image_url_1 = "https://github.com/lkcll/20241222/blob/master/2016-10-28-00_00_2016-10-28-23_59_Sentinel-2_L2A_Scene_classification_map_%20(1)_1.jpg"
 image_url_2 = "/workspaces/20241222/2024-12-20-00_00_2024-12-20-23_59_Sentinel-2_L2A_Scene_classification_map_ (1).jpg"
 
 col1, col2 = st.columns(2)
