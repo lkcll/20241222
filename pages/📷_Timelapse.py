@@ -16,11 +16,11 @@ st.set_page_config(layout="wide")
 warnings.filterwarnings("ignore")
 
 
-@st.cache_data
-def ee_authenticate(token_name=""4/1AanRRrvetQE-WO5EsxFzfpCM_Ff7p5yUoLl63V0NkhUCpGgy8C_nIXbW6yk""):
-    geemap.ee_initialize(token_name=token_name)
+api_key = st.secrets["gee"]["api_key"]
+service_account = st.secrets["gee"].get("service_account")
 
-EARTHENGINE_TOKEN="4/1AanRRrvetQE-WO5EsxFzfpCM_Ff7p5yUoLl63V0NkhUCpGgy8C_nIXbW6yk"
+if api_key:
+    ee.Initialize(api_key=api_key)
 
 goes_rois = {
     "Creek Fire, CA (2020-09-05)": {
