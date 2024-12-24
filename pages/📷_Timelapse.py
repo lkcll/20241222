@@ -17,7 +17,7 @@ warnings.filterwarnings("ignore")
 
 
 # 讀取 GEE 憑證
-service_account = st.secrets["gee"]["service_account"]
+service_account = st.secrets[gee][service_account]
 credentials = ee.ServiceAccountCredentials.from_json_keyfile_dict(json.loads(service_account))
 
 # 初始化 GEE
